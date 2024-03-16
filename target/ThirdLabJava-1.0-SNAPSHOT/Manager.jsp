@@ -11,18 +11,21 @@
 <%
     String directory = request.getParameter("path");
     File file = new File(directory);
-    String parentDirectoryPath = "/";
-
-
-
-    parentDirectoryPath = file.getParent();
+    String parentDirectoryPath = file.getParent();
 
     if (parentDirectoryPath == null) {
         parentDirectoryPath = "/";
     }
 
-
+    Date currentTime = new Date();
 %>
+
+<html>
+<head>
+    <title>Manager</title>
+</head>
+<body>
+<p><b><%= currentTime %></b></p>
 <html>
 <head>
     <title>Менеджер файлов</title>
@@ -44,8 +47,6 @@
     <tr>
         <th><%= item.getName()%></th>
         <th><a href=<%="?path="+item.getAbsolutePath().replace("\\", "/")%>/>Перейти</th>
-
-
         <th><%= item.length()%></th>
         <th><%= new Date(item.lastModified())%></th>
     </tr>
@@ -62,7 +63,6 @@
     %>
     <tr>
         <th><%= item.getName()%></th>
-
         <th><a href=<%="http://localhost:8080/ThirdLabJava_war_exploded/Download?path="+ item.getAbsolutePath().replace("\\", "/")%>> Скачать </a> </th>
         <th><%= item.length()%></th>
         <th><%= new Date(item.lastModified())%></th>

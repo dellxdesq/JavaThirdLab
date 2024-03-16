@@ -27,7 +27,4 @@ public class MainServlet extends HttpServlet {
         request.getRequestDispatcher("Manager.jsp").forward(request, response);
 
     }
-
-    public void destroy() {
-    }
 }
