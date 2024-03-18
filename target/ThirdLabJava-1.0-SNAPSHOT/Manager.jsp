@@ -7,6 +7,7 @@
 --%>
 <<%@ page import="java.io.File" %>
 <%@ page import="java.util.Date" %>
+<%@ page import="java.net.URLEncoder" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     String directory = request.getParameter("path");
@@ -17,7 +18,7 @@
         parentDirectoryPath = "/";
     }
 
-    Date currentTime = new Date();
+
 %>
 
 <html>
@@ -25,7 +26,7 @@
     <title>Manager</title>
 </head>
 <body>
-<p><b><%= currentTime %></b></p>
+<p><b><%= request.getAttribute("currentTime") %></b></p>
 <html>
 <head>
     <title>Менеджер файлов</title>
@@ -46,7 +47,7 @@
     %>
     <tr>
         <th><%= item.getName()%></th>
-        <th><a href=<%="?path="+item.getAbsolutePath().replace("\\", "/")%>/>Перейти</th>
+        <th><a href="<%= "?path=" + URLEncoder.encode(item.getAbsolutePath(), "UTF-8") %>">Перейти</a></th>
         <th><%= item.length()%></th>
         <th><%= new Date(item.lastModified())%></th>
     </tr>

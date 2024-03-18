@@ -6,6 +6,7 @@ import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import service.FileManager;
 import java.io.*;
+import java.util.Date;
 
 @WebServlet(urlPatterns = {"/Manager"})
 public class MainServlet extends HttpServlet {
@@ -21,6 +22,9 @@ public class MainServlet extends HttpServlet {
         if (files == null) {
             files = new File[0];
         }
+
+        Date currentTime = new Date();
+        request.setAttribute("currentTime", currentTime);
 
         request.setAttribute("folders", folders);
         request.setAttribute("files", files);

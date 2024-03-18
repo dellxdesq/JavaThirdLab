@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Главная страница</title>
     <a href="http://localhost:8080/ThirdLabJava_war_exploded/Manager?path=C://">Перейти на диск C:/</a>
 </head>
 <body>
